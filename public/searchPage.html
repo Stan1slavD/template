@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>last.fm Clone</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <body class="app">
+      <header class="header">
+        <a href="/" class="logo link"
+          ><img
+            src="icons/last.fm clone.svg"
+            alt="logo"
+            width="75"
+            height="50"
+            class="logo_img"
+        /></a>
+        <div class="search_field">
+          <img
+            src="icons/search.svg"
+            width="20"
+            height="20"
+            alt="search"
+            class="search_img"
+          />
+          <input type="text" placeholder="search..." class="search" />
+        </div>
+      </header>
+      <main class="content">
+        <aside class="menu">
+          <ul class="menu_list">
+            <li class="menu_item">
+              <a href="index.html" class="menu_link link">
+                <img src="icons/home.svg" width="20" height="20" alt="" />
+                <span class="menu_item_text">Главная</span>
+              </a>
+            </li>
+            <li class="menu_item">
+              <a href="searchPage.html" class="menu_link link">
+                <img src="icons/search.svg" width="20" height="20" alt="" />
+                <span class="menu_item_text">Поиск</span>
+              </a>
+            </li>
+            <li class="menu_item">
+              <a href="/" class="menu_link link">
+                <img src="icons/music.svg" width="20" height="20" alt="" />
+                <span class="menu_item_text">Моя медиатека</span>
+              </a>
+            </li>
+            <li class="menu_item">
+              <a href="/" class="menu_link link">
+                <img src="icons/add.svg" width="20" height="20" alt="" />
+                <span class="menu_item_text">Создать плейлист</span>
+              </a>
+            </li>
+            <li class="menu_item">
+              <a href="/" class="menu_link link">
+                <img src="icons/heart.svg" width="20" height="20" alt="" />
+                <span class="menu_item_text">Любимые треки</span>
+              </a>
+            </li>
+          </ul>
+        </aside>
+        <div class="main_content">
+          <h1 class="search_title">Поиск</h1>
+          <div class="search_form">
+            <input
+              type="text"
+              placeholder="Поиск..."
+              class="serch_form_input"
+            />
+            <button class="search_btn">Найти</button>
+          </div>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="footer_copyright">© 2022...</div>
+        <nav class="footer_nav">
+          <a href="/" class="nav_link link">GitHub</a>
+          <a href="/" class="nav_link link">About</a>
+        </nav>
+      </footer>
+    </body>
+  </body>
+</html>

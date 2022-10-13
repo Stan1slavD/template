@@ -1,37 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
-
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>last.fm Clone</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+  <body class="app">
+    <header class="header">
+      <a href="/" class="logo link"
+        ><img
+          src="icons/last.fm clone.svg"
+          alt="logo"
+          width="75"
+          height="50"
+          class="logo_img"
+      /></a>
+      <div class="search_field">
+        <img
+          src="icons/search.svg"
+          width="20"
+          height="20"
+          alt="search"
+          class="search_img"
+        />
+        <input type="text" placeholder="search..." class="search" />
+      </div>
+    </header>
+    <main class="content">
+      <aside class="menu">
+        <ul class="menu_list">
+          <li class="menu_item">
+            <a href="index.html" class="menu_link link">
+              <img src="icons/home.svg" width="20" height="20" alt="" />
+              <span class="menu_item_text">Главная</span>
+            </a>
+          </li>
+          <li class="menu_item">
+            <a href="searchPage.html" class="menu_link link">
+              <img src="icons/search.svg" width="20" height="20" alt="" />
+              <span class="menu_item_text">Поиск</span>
+            </a>
+          </li>
+          <li class="menu_item">
+            <a href="/" class="menu_link link">
+              <img src="icons/music.svg" width="20" height="20" alt="" />
+              <span class="menu_item_text">Моя медиатека</span>
+            </a>
+          </li>
+          <li class="menu_item">
+            <a href="/" class="menu_link link">
+              <img src="icons/add.svg" width="20" height="20" alt="" />
+              <span class="menu_item_text">Создать плейлист</span>
+            </a>
+          </li>
+          <li class="menu_item">
+            <a href="/" class="menu_link link">
+              <img src="icons/heart.svg" width="20" height="20" alt="" />
+              <span class="menu_item_text">Любимые треки</span>
+            </a>
+          </li>
+        </ul>
+      </aside>
+      <div class="main_content">
+        <div class="big_logo">
+          <img src="icons/Group 1(2).svg" class="img" alt="big logo" />
+        </div>
+        <div class="title">
+          <h2>Рекомендации</h2>
+          <a href="/" class="link all">см все</a>
+        </div>
+        <div class="card_container">
+          <a class="card link">
+            <div class="card_img">
+              <img
+                src="icons/joy division.jpg"
+                class="card_img"
+                width="296"
+                height="296"
+                alt=""
+              />
+            </div>
+            <div class="card_title">
+              <span class="card_group"> Joy Division </span>
+              <span class="card_albom"> Unknown Pleasures </span>
+            </div>
+          </a>
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+          <a class="card link">
+            <div class="card_img">
+              <img
+                src="icons/joy division.jpg"
+                class="card_img"
+                width="296"
+                height="296"
+                alt=""
+              />
+            </div>
+            <div class="card_title">
+              <span class="card_group"> Joy Division </span>
+              <span class="card_albom"> Unknown Pleasures </span>
+            </div>
+          </a>
+          <a class="card link">
+            <div class="card_img">
+              <img
+                src="icons/joy division.jpg"
+                class="card_img"
+                width="296"
+                height="296"
+                alt=""
+              />
+            </div>
+            <div class="card_title">
+              <span class="card_group"> Joy Division </span>
+              <span class="card_albom"> Unknown Pleasures </span>
+            </div>
+          </a>
+        </div>
+        <div class="title">
+          <h2>Топ</h2>
+          <a href="/" class="link all">см все</a>
+        </div>
+        <div class="card_container">
+          <a class="card link">
+            <div class="card_img">
+              <img
+                src="icons/joy division.jpg"
+                class="card_img"
+                width="296"
+                height="296"
+                alt=""
+              />
+            </div>
+            <div class="card_title">
+              <span class="card_group"> Joy Division </span>
+              <span class="card_albom"> Unknown Pleasures </span>
+            </div>
+          </a>
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+          <a class="card link">
+            <div class="card_img">
+              <img
+                src="icons/joy division.jpg"
+                class="card_img"
+                width="296"
+                height="296"
+                alt=""
+              />
+            </div>
+            <div class="card_title">
+              <span class="card_group"> Joy Division </span>
+              <span class="card_albom"> Unknown Pleasures </span>
+            </div>
+          </a>
+          <a class="card link">
+            <div class="card_img">
+              <img
+                src="icons/joy division.jpg"
+                class="card_img"
+                width="296"
+                height="296"
+                alt=""
+              />
+            </div>
+            <div class="card_title">
+              <span class="card_group"> Joy Division </span>
+              <span class="card_albom"> Unknown Pleasures </span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="footer_copyright">© 2022...</div>
+      <nav class="footer_nav">
+        <a href="/" class="nav_link link">GitHub</a>
+        <a href="/" class="nav_link link">About</a>
+      </nav>
+    </footer>
   </body>
 </html>
