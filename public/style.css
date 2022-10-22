@@ -2,7 +2,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: Consolas;
+  font-family: Consolas, Arial, Helvetica, sans-serif;
 }
 
 .app {
@@ -18,9 +18,12 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
+  position: fixed;
+  z-index: 1;
 }
 
 .content{
+  margin-top: 30px;
   background: #ffff;
   padding: 50px 50px;
 }
