@@ -1,37 +1,617 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
-
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>last.fm Clone</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+  <body class="app">
+    <header class="header">
+      <div class="player">
+        <div class="grey_container">
+          <button class="player_btn">
+            <img src="icons/disk.svg" alt="disk" width="50" height="50" />
+          </button>
+        </div>
+        <div class="black_container"></div>
+        <div class="black_container">
+          <button class="player_btn">
+            <img src="icons/prev.svg" alt="prev" width="30" height="30" />
+          </button>
+        </div>
+        <a class="black_container">
+          <button class="player_btn">
+            <img src="icons/play.svg" alt="play" width="50" height="50" />
+          </button>
+        </a>
+        <div class="black_container">
+          <button class="player_btn">
+            <img src="icons/next.svg" alt="next" width="30" height="30" />
+          </button>
+        </div>
+        <div class="black_container">
+          <button class="player_btn">
+            <img src="icons/heart.svg" alt="heart" width="30" height="30" />
+          </button>
+        </div>
+      </div>
+      <div class="logo_container">
+        <span class="logo"> last.fm </span>
+      </div>
+      <div class="navigation">
+        <div class="nav_item">
+          <a href="searchPage.html">
+            <img src="icons/search.svg" width="20" height="20" alt="serach" />
+          </a>
+        </div>
+        <div class="nav_item">
+          <a href="/" class="link">Home</a>
+        </div>
+        <div class="nav_item">
+          <a href="/" class="link">Live</a>
+        </div>
+        <div class="nav_item">
+          <a href="/" class="link">Music</a>
+        </div>
+        <div class="nav_item">
+          <a href="/" class="link">Charts</a>
+        </div>
+        <div class="nav_item">
+          <a href="/" class="link">Events</a>
+        </div>
+        <div class="nav_item">
+          <a href="/" class="link">Features</a>
+        </div>
+        <div class="nav_item">
+          <a href="/" class="link user_link">
+            <img
+              src="icons/user.svg"
+              alt="user"
+              width="30"
+              height="30"
+              class="user_img"
+            />
+          </a>
+        </div>
+      </div>
+    </header>
+    <main class="content">
+      <h1 class="main_title">Music</h1>
+      <h2 class="title">Hot right now</h2>
+      <div class="hits">
+        <div class="hit_card">
+          <a href="" class="link">
+            <img
+              src="icons/joy division.jpg"
+              height="150"
+              alt=""
+              class="hit_img"
+            />
+            <div class="hit_text">
+              <span class="autor">Joy Division</span>
+              <span class="ganre">post-punk</span>
+            </div>
+          </a>
+        </div>
+        <div class="hit_card">
+          <a href="" class="link">
+            <img
+              src="icons/joy division.jpg"
+              height="150"
+              alt=""
+              class="hit_img"
+            />
+            <div class="hit_text">
+              <span class="autor">Joy Division</span>
+              <span class="ganre">post-punk</span>
+            </div>
+          </a>
+        </div>
+        <div class="hit_card">
+          <a href="" class="link">
+            <img
+              src="icons/joy division.jpg"
+              height="150"
+              alt=""
+              class="hit_img"
+            />
+            <div class="hit_text">
+              <span class="autor">Joy Division</span>
+              <span class="ganre">post-punk</span>
+            </div>
+          </a>
+        </div>
+        <div class="hit_card">
+          <a href="" class="link">
+            <img
+              src="icons/joy division.jpg"
+              height="150"
+              alt=""
+              class="hit_img"
+            />
+            <div class="hit_text">
+              <span class="autor">Joy Division</span>
+              <span class="ganre">post-punk</span>
+            </div>
+          </a>
+        </div>
+        <div class="hit_card">
+          <a href="" class="link">
+            <img
+              src="icons/joy division.jpg"
+              height="150"
+              alt=""
+              class="hit_img"
+            />
+            <div class="hit_text">
+              <span class="autor">Joy Division</span>
+              <span class="ganre">post-punk</span>
+            </div>
+          </a>
+        </div>
+        <div class="hit_card">
+          <a href="" class="link">
+            <img
+              src="icons/joy division.jpg"
+              height="150"
+              alt=""
+              class="hit_img"
+            />
+            <div class="hit_text">
+              <span class="autor">Joy Division</span>
+              <span class="ganre">post-punk</span>
+            </div>
+          </a>
+        </div>
+        <div class="hit_card">
+          <a href="" class="link">
+            <img
+              src="icons/joy division.jpg"
+              height="150"
+              alt=""
+              class="hit_img"
+            />
+            <div class="hit_text">
+              <span class="autor">Joy Division</span>
+              <span class="ganre">post-punk</span>
+            </div>
+          </a>
+        </div>
+        <div class="hit_card">
+          <a href="" class="link">
+            <img
+              src="icons/joy division.jpg"
+              height="150"
+              alt=""
+              class="hit_img"
+            />
+            <div class="hit_text">
+              <span class="autor">Joy Division</span>
+              <span class="ganre">post-punk</span>
+            </div>
+          </a>
+        </div>
+        <div class="hit_card">
+          <a href="" class="link">
+            <img
+              src="icons/joy division.jpg"
+              height="150"
+              alt=""
+              class="hit_img"
+            />
+            <div class="hit_text">
+              <span class="autor">Joy Division</span>
+              <span class="ganre">post-punk</span>
+            </div>
+          </a>
+        </div>
+        <div class="hit_card">
+          <a href="" class="link">
+            <img
+              src="icons/joy division.jpg"
+              height="150"
+              alt=""
+              class="hit_img"
+            />
+            <div class="hit_text">
+              <span class="autor">Joy Division</span>
+              <span class="ganre">post-punk</span>
+            </div>
+          </a>
+        </div>
+        <div class="hit_card">
+          <a href="" class="link">
+            <img
+              src="icons/joy division.jpg"
+              height="150"
+              alt=""
+              class="hit_img"
+            />
+            <div class="hit_text">
+              <span class="autor">Joy Division</span>
+              <span class="ganre">post-punk</span>
+            </div>
+          </a>
+        </div>
+        <div class="hit_card">
+          <a href="" class="link">
+            <img
+              src="icons/joy division.jpg"
+              height="150"
+              alt=""
+              class="hit_img"
+            />
+            <div class="hit_text">
+              <span class="autor">Joy Division</span>
+              <span class="ganre">post-punk</span>
+            </div>
+          </a>
+        </div>
+      </div>
+      <h2 class="title">Popular tracks</h2>
+      <div class="popular_tracks">
+        <div class="popular_track_card">
+          <a href="/" class="link">
+            <div class="card_content">
+              <img
+                src="icons/joy division.jpg"
+                alt="img"
+                width="75"
+                height="75"
+              />
+              <div class="card_text">
+                <span class="track_name"> Disorder </span>
+                <span class="track_group"> Joy Division </span>
+                <span class="track_ganre"> post-punk </span>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="popular_track_card">
+          <a href="/" class="link">
+            <div class="card_content">
+              <img
+                src="icons/joy division.jpg"
+                alt="img"
+                width="75"
+                height="75"
+              />
+              <div class="card_text">
+                <span class="track_name"> Disorder </span>
+                <span class="track_group"> Joy Division </span>
+                <span class="track_ganre"> post-punk </span>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="popular_track_card">
+          <a href="/" class="link">
+            <div class="card_content">
+              <img
+                src="icons/joy division.jpg"
+                alt="img"
+                width="75"
+                height="75"
+              />
+              <div class="card_text">
+                <span class="track_name"> Disorder </span>
+                <span class="track_group"> Joy Division </span>
+                <span class="track_ganre"> post-punk </span>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="popular_track_card">
+          <a href="/" class="link">
+            <div class="card_content">
+              <img
+                src="icons/joy division.jpg"
+                alt="img"
+                width="75"
+                height="75"
+              />
+              <div class="card_text">
+                <span class="track_name"> Disorder </span>
+                <span class="track_group"> Joy Division </span>
+                <span class="track_ganre"> post-punk </span>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="popular_track_card">
+          <a href="/" class="link">
+            <div class="card_content">
+              <img
+                src="icons/joy division.jpg"
+                alt="img"
+                width="75"
+                height="75"
+              />
+              <div class="card_text">
+                <span class="track_name"> Disorder </span>
+                <span class="track_group"> Joy Division </span>
+                <span class="track_ganre"> post-punk </span>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="popular_track_card">
+          <a href="/" class="link">
+            <div class="card_content">
+              <img
+                src="icons/joy division.jpg"
+                alt="img"
+                width="75"
+                height="75"
+              />
+              <div class="card_text">
+                <span class="track_name"> Disorder </span>
+                <span class="track_group"> Joy Division </span>
+                <span class="track_ganre"> post-punk </span>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="popular_track_card">
+          <a href="/" class="link">
+            <div class="card_content">
+              <img
+                src="icons/joy division.jpg"
+                alt="img"
+                width="75"
+                height="75"
+              />
+              <div class="card_text">
+                <span class="track_name"> Disorder </span>
+                <span class="track_group"> Joy Division </span>
+                <span class="track_ganre"> post-punk </span>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="popular_track_card">
+          <a href="/" class="link">
+            <div class="card_content">
+              <img
+                src="icons/joy division.jpg"
+                alt="img"
+                width="75"
+                height="75"
+              />
+              <div class="card_text">
+                <span class="track_name"> Disorder </span>
+                <span class="track_group"> Joy Division </span>
+                <span class="track_ganre"> post-punk </span>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="popular_track_card">
+          <a href="/" class="link">
+            <div class="card_content">
+              <img
+                src="icons/joy division.jpg"
+                alt="img"
+                width="75"
+                height="75"
+              />
+              <div class="card_text">
+                <span class="track_name"> Disorder </span>
+                <span class="track_group"> Joy Division </span>
+                <span class="track_ganre"> post-punk </span>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="popular_track_card">
+          <a href="/" class="link">
+            <div class="card_content">
+              <img
+                src="icons/joy division.jpg"
+                alt="img"
+                width="75"
+                height="75"
+              />
+              <div class="card_text">
+                <span class="track_name"> Disorder </span>
+                <span class="track_group"> Joy Division </span>
+                <span class="track_ganre"> post-punk </span>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="popular_track_card">
+          <a href="/" class="link">
+            <div class="card_content">
+              <img
+                src="icons/joy division.jpg"
+                alt="img"
+                width="75"
+                height="75"
+              />
+              <div class="card_text">
+                <span class="track_name"> Disorder </span>
+                <span class="track_group"> Joy Division </span>
+                <span class="track_ganre"> post-punk </span>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="popular_track_card">
+          <a href="/" class="link">
+            <div class="card_content">
+              <img
+                src="icons/joy division.jpg"
+                alt="img"
+                width="75"
+                height="75"
+              />
+              <div class="card_text">
+                <span class="track_name"> Disorder </span>
+                <span class="track_group"> Joy Division </span>
+                <span class="track_ganre"> post-punk </span>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="popular_track_card">
+          <a href="/" class="link">
+            <div class="card_content">
+              <img
+                src="icons/joy division.jpg"
+                alt="img"
+                width="75"
+                height="75"
+              />
+              <div class="card_text">
+                <span class="track_name"> Disorder </span>
+                <span class="track_group"> Joy Division </span>
+                <span class="track_ganre"> post-punk </span>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="popular_track_card">
+          <a href="/" class="link">
+            <div class="card_content">
+              <img
+                src="icons/joy division.jpg"
+                alt="img"
+                width="75"
+                height="75"
+              />
+              <div class="card_text">
+                <span class="track_name"> Disorder </span>
+                <span class="track_group"> Joy Division </span>
+                <span class="track_ganre"> post-punk </span>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="popular_track_card">
+          <a href="/" class="link">
+            <div class="card_content">
+              <img
+                src="icons/joy division.jpg"
+                alt="img"
+                width="75"
+                height="75"
+              />
+              <div class="card_text">
+                <span class="track_name"> Disorder </span>
+                <span class="track_group"> Joy Division </span>
+                <span class="track_ganre"> post-punk </span>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="popular_track_card">
+          <a href="/" class="link">
+            <div class="card_content">
+              <img
+                src="icons/joy division.jpg"
+                alt="img"
+                width="75"
+                height="75"
+              />
+              <div class="card_text">
+                <span class="track_name"> Disorder </span>
+                <span class="track_group"> Joy Division </span>
+                <span class="track_ganre"> post-punk </span>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="popular_track_card">
+          <a href="/" class="link">
+            <div class="card_content">
+              <img
+                src="icons/joy division.jpg"
+                alt="img"
+                width="75"
+                height="75"
+              />
+              <div class="card_text">
+                <span class="track_name"> Disorder </span>
+                <span class="track_group"> Joy Division </span>
+                <span class="track_ganre"> post-punk </span>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="popular_track_card">
+          <a href="/" class="link">
+            <div class="card_content">
+              <img
+                src="icons/joy division.jpg"
+                alt="img"
+                width="75"
+                height="75"
+              />
+              <div class="card_text">
+                <span class="track_name"> Disorder </span>
+                <span class="track_group"> Joy Division </span>
+                <span class="track_ganre"> post-punk </span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </main>
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+    <footer class="footer">
+      <div class="footer_nav">
+        <div class="footer_nav_item">
+          <span class="footer_title">COMPANY</span>
+          <a href="/" class="link">About Last.fm</a>
+          <a href="/" class="link">Contact Us</a>
+          <a href="/" class="link">Jobs</a>
+        </div>
+        <div class="footer_nav_item">
+          <span class="footer_title">HELP</span>
+          <a href="/" class="link">Track My Music</a>
+          <a href="/" class="link">Community Support</a>
+          <a href="/" class="link">Community Guidelines</a>
+          <a href="/" class="link">Help</a>
+        </div>
+        <div class="footer_nav_item">
+          <span class="footer_title">GOODIES</span>
+          <a href="/" class="link">Download Scobbler</a>
+          <a href="/" class="link">Developer API</a>
+          <a href="/" class="link">Frtt Music Downloads</a>
+          <a href="/" class="link">Merchandise</a>
+        </div>
+        <div class="footer_nav_item">
+          <span class="footer_title">ACCOUNT</span>
+          <a href="/" class="link">Inbox</a>
+          <a href="/" class="link">Settings</a>
+          <a href="/" class="link">Last.fm Pro</a>
+          <a href="/" class="link">Logout</a>
+        </div>
+        <div class="footer_nav_item">
+          <span class="footer_title">FOLLOW US</span>
+          <a href="/" class="link">Facebook</a>
+          <a href="/" class="link">Twitter</a>
+          <a href="/" class="link">Instagram</a>
+          <a href="/" class="link">YouTube</a>
+        </div>
+      </div>
+      <hr class="footer_line" />
+      <div class="footer_info">
+        <div>
+          <span class="language selected">English</span>
+          <span class="language">Deutsch</span>
+          <span class="language">Italiano</span>
+          <span class="language">Polski</span>
+          <span class="language">Русский</span>
+          <span class="language">Svenska</span>
+        </div>
+        <div class="zone">
+          Time zone: <span class="selected">Europe/Moscow</span>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
