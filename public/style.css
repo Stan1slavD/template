@@ -26,6 +26,7 @@
   margin-top: 30px;
   background: #ffff;
   padding: 50px 50px;
+  min-height: 500px;
 }
 
 .player_btn{
@@ -335,4 +336,8 @@ position: relative;
 .duration{
   color: grey;
   text-align: right;
+}
+
+.hide{
+  display: none
 }
