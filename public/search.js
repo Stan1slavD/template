@@ -42,6 +42,9 @@ var search = document.querySelector(".search");
 var searchTitle = document.body.querySelector(".search_title");
 var titles = document.body.querySelectorAll(".search_title");
 var moreLinks = document.body.querySelectorAll(".more_link");
+/** GET запрос к lastFm Api на поиск и получение артистов
+ *  @param {string} value - значение поисковой строки
+ */
 function fetchArtists(value) {
     return __awaiter(this, void 0, void 0, function () {
         var response;
@@ -50,7 +53,13 @@ function fetchArtists(value) {
                 case 0: return [4 /*yield*/, fetch("http://ws.audioscrobbler.com/2.0/?method=artist.search&artist=".concat(value, "&api_key=4d8ee139f9b64f2e68e42e8254d559f1&limit=8&format=json"))
                         .then(function (res) { return res.json(); })
                         .then(function (data) { return data.results.artistmatches; })
-                        .then(function (artist) { return artist.artist.forEach(function (data) { return pushToArtists(data); }); })];
+                        .then(function (artist) {
+                        return artist.artist
+                            .sort(function (a, b) {
+                            return a.listeners - b.listeners;
+                        })
+                            .forEach(function (data) { return pushToArtists(data); });
+                    })["catch"](function (err) { return alert("Не получилось загрузить исполнителей:\n" + err); })];
                 case 1:
                     response = _a.sent();
                     return [2 /*return*/];
@@ -58,6 +67,9 @@ function fetchArtists(value) {
         });
     });
 }
+/** GET запрос к lastFm Api на поиск и получение альбомов
+ *  @param {string} value - значение поисковой строки
+ */
 function fetchAlbums(value) {
     return __awaiter(this, void 0, void 0, function () {
         var response;
@@ -66,7 +78,7 @@ function fetchAlbums(value) {
                 case 0: return [4 /*yield*/, fetch("http://ws.audioscrobbler.com/2.0/?method=album.search&album=".concat(value, "&api_key=4d8ee139f9b64f2e68e42e8254d559f1&limit=8&format=json"))
                         .then(function (res) { return res.json(); })
                         .then(function (data) { return data.results.albummatches; })
-                        .then(function (album) { return album.album.forEach(function (data) { return pushToAlbums(data); }); })];
+                        .then(function (album) { return album.album.forEach(function (data) { return pushToAlbums(data); }); })["catch"](function (err) { return alert("Не получилось загрузить альбомы:\n" + err); })];
                 case 1:
                     response = _a.sent();
                     return [2 /*return*/];
@@ -74,6 +86,9 @@ function fetchAlbums(value) {
         });
     });
 }
+/** GET запрос к lastFm Api на поиск и получение треков
+ *  @param {string} value - значение поисковой строки
+ */
 function fetchTracks(value) {
     return __awaiter(this, void 0, void 0, function () {
         var response;
@@ -82,7 +97,13 @@ function fetchTracks(value) {
                 case 0: return [4 /*yield*/, fetch("http://ws.audioscrobbler.com/2.0/?method=track.search&track=".concat(value, "&api_key=4d8ee139f9b64f2e68e42e8254d559f1&limit=10&format=json"))
                         .then(function (res) { return res.json(); })
                         .then(function (data) { return data.results.trackmatches; })
-                        .then(function (track) { return track.track.forEach(function (data) { return pushToTracks(data); }); })];
+                        .then(function (track) {
+                        return track.track
+                            .sort(function (a, b) {
+                            return a.listeners - b.listeners;
+                        })
+                            .forEach(function (data) { return pushToTracks(data); });
+                    })["catch"](function (err) { return alert("Не получилось загрузить треки:\n" + err); })];
                 case 1:
                     response = _a.sent();
                     return [2 /*return*/];
@@ -90,16 +111,25 @@ function fetchTracks(value) {
         });
     });
 }
+/** Создание карточки с исполнителем
+ *  @param {JSON} data - Json-объект с данными об исполнителе
+ */
 function pushToArtists(data) {
-    var template = "\n<div class=\"artist_card\">\n<img\n  src=".concat(data.image[4]["#text"], "\n  alt=\"artist\"\n  width=\"250\"\n  height=\"250\"\n/>\n<div class=\"artist_text\">\n  <span class=\"name\">").concat(data.name, "</span>\n  <span class=\"listeners\">").concat(data.listeners, " listeners</span>\n</div>\n</div>");
+    var template = "\n<div class=\"artist_card\">\n<img\n  src=".concat(getImg(data.image[3]["#text"]), "\n  alt=\"artist\"\n  width=\"250\"\n  height=\"250\"\n/>\n<div class=\"artist_text\">\n  <span class=\"name\">").concat(data.name, "</span>\n  <span class=\"listeners\">").concat(data.listeners, " listeners</span>\n</div>\n</div>");
     artistList === null || artistList === void 0 ? void 0 : artistList.insertAdjacentHTML("afterbegin", template);
 }
+/** Создание карточки с альбомом
+ *  @param {JSON} data - Json-объект с данными об альбоме
+ */
 function pushToAlbums(data) {
-    var template = "<div class=\"artist_card\">\n  <img\n    src=".concat(data.image[3]["#text"], "\n    alt=\"album\"\n    width=\"250\"\n    height=\"250\"\n  />\n  <div class=\"artist_text\">\n    <span class=\"name\">").concat(data.name, "</span>\n    <span class=\"listeners\">").concat(data.artist, "</span>\n  </div>\n</div>");
+    var template = "<div class=\"artist_card\">\n  <img\n    src=".concat(getImg(data.image[3]["#text"]), "\n    alt=\"album\"\n    width=\"250\"\n    height=\"250\"\n  />\n  <div class=\"artist_text\">\n    <span class=\"name\">").concat(data.name, "</span>\n    <span class=\"listeners\">").concat(data.artist, "</span>\n  </div>\n</div>");
     albumsList === null || albumsList === void 0 ? void 0 : albumsList.insertAdjacentHTML("afterbegin", template);
 }
+/** Создание карточки с треком
+ *  @param {JSON} data - Json-объект с данными о треке
+ */
 function pushToTracks(data) {
-    var template = " <div class=\"track\">\n    <button class=\"clear_btn\"><img src=\"icons/play.svg\" alt=\"play\" width=\"50\" height=\"50\"/></button>\n    <img\n      src=".concat(data.image[3]["#text"], "\n      width=\"50\"\n      height=\"50\"\n      alt=\"track\"\n    />\n    <a href=\"\" class=\"h_link\">\n      <img src=\"icons/heart.svg\"  alt=\"\" width=\"25\" height=\"25\">\n    </a>\n    <span class=\"song\">").concat(data.name, "</span>\n    <span class=\"singer\">").concat(data.artist, "</span>\n    <span class=\"duration\">listeners: ").concat(data.listeners, "</span>\n  </div>");
+    var template = " <div class=\"track\">\n    <button class=\"clear_btn\"><img src=\"icons/play.svg\" alt=\"play\" width=\"50\" height=\"50\"/></button>\n    <img\n      src=".concat(getImg(data.image[3]["#text"]), "\n      width=\"50\"\n      height=\"50\"\n      alt=\"track\"\n    />\n    <a href=\"\" class=\"h_link\">\n      <img src=\"icons/heart.svg\"  alt=\"\" width=\"25\" height=\"25\">\n    </a>\n    <span class=\"song\">").concat(data.name, "</span>\n    <span class=\"singer\">").concat(data.artist, "</span>\n    <span class=\"duration\">listeners: ").concat(data.listeners, "</span>\n  </div>");
     tracksList === null || tracksList === void 0 ? void 0 : tracksList.insertAdjacentHTML("afterbegin", template);
 }
 search === null || search === void 0 ? void 0 : search.addEventListener("keydown", function (e) {
@@ -119,6 +149,7 @@ search === null || search === void 0 ? void 0 : search.addEventListener("keydown
             searchTitle.innerHTML = "Search results for: \"".concat(target.value.toString(), "\"");
     }
 });
+/** Прячем заголовки, если результатов поиска нет*/
 function hideAll() {
     titles.forEach(function (title) {
         title.classList.add("hide");
@@ -130,6 +161,7 @@ function hideAll() {
     artistList === null || artistList === void 0 ? void 0 : artistList.classList.add("hide");
     tracksList === null || tracksList === void 0 ? void 0 : tracksList.classList.add("hide");
 }
+/** Отображаем заголовки, если результаты поиска отображены */
 function showAll() {
     titles.forEach(function (title) {
         title.classList.remove("hide");
@@ -141,6 +173,7 @@ function showAll() {
     artistList === null || artistList === void 0 ? void 0 : artistList.classList.remove("hide");
     tracksList === null || tracksList === void 0 ? void 0 : tracksList.classList.remove("hide");
 }
+/** Чистим контейнеры карточек  */
 function deleteOldCards() {
     var artstCards = document.body.querySelectorAll(".artist_card");
     artstCards.forEach(function (card) {
@@ -152,4 +185,14 @@ function deleteOldCards() {
         var _a;
         (_a = card.parentNode) === null || _a === void 0 ? void 0 : _a.removeChild(card);
     });
+}
+/** Возвращает обложку, если ее нет
+ *  @param {string} data - url обложки
+ */
+function getImg(data) {
+    if (data == "") {
+        return "https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png";
+    }
+    else
+        return data;
 }

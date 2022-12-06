@@ -36,6 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 var topArtistList = document.body.querySelector(".hits");
 var topTracksList = document.body.querySelector(".popular_tracks");
+/** GET запрос к lastFm Api на получение топа артистов */
 function fetchTopArtists() {
     return __awaiter(this, void 0, void 0, function () {
         var response;
@@ -44,7 +45,13 @@ function fetchTopArtists() {
                 case 0: return [4 /*yield*/, fetch("http://ws.audioscrobbler.com/2.0/?method=chart.gettopartists&api_key=4d8ee139f9b64f2e68e42e8254d559f1&limit=12&format=json")
                         .then(function (res) { return res.json(); })
                         .then(function (data) { return data.artists; })
-                        .then(function (artist) { return artist.artist.forEach(function (data) { return pushToHits(data); }); })];
+                        .then(function (artist) {
+                        return artist.artist
+                            .sort(function (a, b) {
+                            return b.listeners - a.listeners;
+                        })
+                            .forEach(function (data) { return pushToHits(data); });
+                    })["catch"](function (err) { return alert("Не получилось загрузить топ исполнителей:\n" + err); })];
                 case 1:
                     response = _a.sent();
                     return [2 /*return*/];
@@ -52,6 +59,7 @@ function fetchTopArtists() {
         });
     });
 }
+/** GET запрос к lastFm Api на получение топа треков */
 function fetchTopTracks() {
     return __awaiter(this, void 0, void 0, function () {
         var response;
@@ -60,7 +68,13 @@ function fetchTopTracks() {
                 case 0: return [4 /*yield*/, fetch("http://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=4d8ee139f9b64f2e68e42e8254d559f1&limit=18&format=json")
                         .then(function (res) { return res.json(); })
                         .then(function (data) { return data.tracks; })
-                        .then(function (track) { return track.track.forEach(function (data) { return pushToPopularTracks(data); }); })["catch"](function (err) { return console.log(err); })];
+                        .then(function (track) {
+                        return track.track
+                            .sort(function (a, b) {
+                            return b.listeners - a.listeners;
+                        })
+                            .forEach(function (data) { return pushToPopularTracks(data); });
+                    })["catch"](function (err) { return alert("Не получилось загрузить хиты:\n" + err); })];
                 case 1:
                     response = _a.sent();
                     return [2 /*return*/];
@@ -68,10 +82,16 @@ function fetchTopTracks() {
         });
     });
 }
+/** Создание карточки с хитом
+ *  @param {JSON} data - Json-объект с данными о хите
+ */
 function pushToHits(data) {
-    var template = "<div class=\"hit_card\">\n        <a href=\"".concat(data.url, "\" class=\"link\">\n          <img\n            src=\"").concat(data.image[4]["#text"], "\"\n            height=\"150\"\n            alt=\"").concat(data.name, "\"\n            class=\"hit_img\"\n          />\n          <div class=\"hit_text\">\n            <span class=\"autor\">").concat(data.name, "</span>\n            <span class=\"ganre\">listeners: ").concat(data.listeners, "</span>\n          </div>\n        </a>\n      </div>");
+    var template = "<div class=\"hit_card\">\n        <a href=\"".concat(data.url, "\" class=\"link\">\n          <img\n            src=\"").concat(data.image[3]["#text"], "\"\n            height=\"150\"\n            alt=\"").concat(data.name, "\"\n            class=\"hit_img\"\n          />\n          <div class=\"hit_text\">\n            <span class=\"autor\">").concat(data.name, "</span>\n            <span class=\"ganre\">listeners: ").concat(data.listeners, "</span>\n          </div>\n        </a>\n      </div>");
     topArtistList === null || topArtistList === void 0 ? void 0 : topArtistList.insertAdjacentHTML("beforeend", template);
 }
+/** Создание карточки с треком
+ *  @param {JSON} data - Json-объект с данными о треке
+ */
 function pushToPopularTracks(data) {
     var template = "<div class=\"popular_track_card\">\n    <a href=\"".concat(data.url, "\" class=\"link\">\n      <div class=\"card_content\">\n        <img\n          src=\"").concat(data.image[3]["#text"], "\"\n          alt=\"").concat(data.name, "\"\n          width=\"75\"\n          height=\"75\"\n        />\n        <div class=\"card_text\">\n          <span class=\"track_name\">").concat(data.name, "</span>\n          <span class=\"track_group\"> ").concat(data.artist.name, " </span>\n          <span class=\"track_ganre\">listeners: ").concat(data.listeners, " </span>\n        </div>\n      </div>\n    </a>\n  </div>");
     topTracksList === null || topTracksList === void 0 ? void 0 : topTracksList.insertAdjacentHTML("beforeend", template);

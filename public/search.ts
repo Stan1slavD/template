@@ -11,38 +11,65 @@ const searchTitle: HTMLHeadingElement | null =
 const titles: any = document.body.querySelectorAll(".search_title");
 const moreLinks: any = document.body.querySelectorAll(".more_link");
 
+/** GET запрос к lastFm Api на поиск и получение артистов 
+ *  @param {string} value - значение поисковой строки
+ */
 async function fetchArtists(value: string): Promise<any> {
   const response = await fetch(
     `http://ws.audioscrobbler.com/2.0/?method=artist.search&artist=${value}&api_key=4d8ee139f9b64f2e68e42e8254d559f1&limit=8&format=json`
   )
     .then((res) => res.json())
     .then((data) => data.results.artistmatches)
-    .then((artist) => artist.artist.forEach((data) => pushToArtists(data)));
+    .then((artist) =>
+      artist.artist
+        .sort((a: any, b: any): any => {
+          return a.listeners - b.listeners;
+        })
+        .forEach((data) => pushToArtists(data))
+    )
+    .catch((err) => alert("Не получилось загрузить исполнителей:\n"+err));
 }
 
+/** GET запрос к lastFm Api на поиск и получение альбомов 
+ *  @param {string} value - значение поисковой строки
+ */
 async function fetchAlbums(value: string): Promise<any> {
   const response = await fetch(
     `http://ws.audioscrobbler.com/2.0/?method=album.search&album=${value}&api_key=4d8ee139f9b64f2e68e42e8254d559f1&limit=8&format=json`
   )
     .then((res) => res.json())
     .then((data) => data.results.albummatches)
-    .then((album) => album.album.forEach((data) => pushToAlbums(data)));
+    .then((album) => album.album.forEach((data) => pushToAlbums(data)))
+    .catch((err) => alert("Не получилось загрузить альбомы:\n"+err));
 }
 
+/** GET запрос к lastFm Api на поиск и получение треков 
+ *  @param {string} value - значение поисковой строки
+ */
 async function fetchTracks(value: string): Promise<any> {
   const response = await fetch(
     `http://ws.audioscrobbler.com/2.0/?method=track.search&track=${value}&api_key=4d8ee139f9b64f2e68e42e8254d559f1&limit=10&format=json`
   )
     .then((res) => res.json())
     .then((data) => data.results.trackmatches)
-    .then((track) => track.track.forEach((data) => pushToTracks(data)));
+    .then((track) =>
+      track.track
+        .sort((a: any, b: any): any => {
+          return a.listeners - b.listeners;
+        })
+        .forEach((data) => pushToTracks(data))
+    )
+    .catch((err) => alert("Не получилось загрузить треки:\n"+err));
 }
 
+/** Создание карточки с исполнителем
+ *  @param {JSON} data - Json-объект с данными об исполнителе
+ */
 function pushToArtists(data): void {
   const template: string = `
 <div class="artist_card">
 <img
-  src=${data.image[4]["#text"]}
+  src=${getImg(data.image[3]["#text"])}
   alt="artist"
   width="250"
   height="250"
@@ -55,10 +82,13 @@ function pushToArtists(data): void {
   artistList?.insertAdjacentHTML("afterbegin", template);
 }
 
+/** Создание карточки с альбомом
+ *  @param {JSON} data - Json-объект с данными об альбоме
+ */
 function pushToAlbums(data): void {
   const template: string = `<div class="artist_card">
   <img
-    src=${data.image[3]["#text"]}
+    src=${getImg(data.image[3]["#text"])}
     alt="album"
     width="250"
     height="250"
@@ -71,11 +101,14 @@ function pushToAlbums(data): void {
   albumsList?.insertAdjacentHTML("afterbegin", template);
 }
 
+/** Создание карточки с треком
+ *  @param {JSON} data - Json-объект с данными о треке
+ */
 function pushToTracks(data): void {
   const template: string = ` <div class="track">
     <button class="clear_btn"><img src="icons/play.svg" alt="play" width="50" height="50"/></button>
     <img
-      src=${data.image[3]["#text"]}
+      src=${getImg(data.image[3]["#text"])}
       width="50"
       height="50"
       alt="track"
@@ -108,6 +141,7 @@ search?.addEventListener("keydown", (e) => {
   }
 });
 
+/** Прячем заголовки, если результатов поиска нет*/
 function hideAll(): void {
   titles.forEach((title) => {
     title.classList.add("hide");
@@ -120,6 +154,7 @@ function hideAll(): void {
   tracksList?.classList.add("hide");
 }
 
+/** Отображаем заголовки, если результаты поиска отображены */
 function showAll(): void {
   titles.forEach((title) => {
     title.classList.remove("hide");
@@ -132,15 +167,24 @@ function showAll(): void {
   tracksList?.classList.remove("hide");
 }
 
+/** Чистим контейнеры карточек  */
 function deleteOldCards(): void {
-
   const artstCards = document.body.querySelectorAll(".artist_card");
-  artstCards.forEach((card)=>{
-    card.parentNode?.removeChild(card)
-  })
-
-  const trackCards = document.body.querySelectorAll(".track")
-  trackCards.forEach((card)=>{
-    card.parentNode?.removeChild(card)
-  })
+  artstCards.forEach((card) => {
+    card.parentNode?.removeChild(card);
+  });
+  const trackCards = document.body.querySelectorAll(".track");
+  trackCards.forEach((card) => {
+    card.parentNode?.removeChild(card);
+  });
 }
+
+/** Возвращает обложку, если ее нет
+ *  @param {string} data - url обложки
+ */
+function getImg(data: string): string {
+  if (data == "") {
+    return "https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png";
+  } else return data;
+}
+
