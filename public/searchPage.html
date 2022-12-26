@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>last.fm Clone</title>
     <link rel="stylesheet" href="style.css" />
+    <script src="./search.js" defer></script>
   </head>
   <body class="app">
     <header class="header">
@@ -79,7 +80,7 @@
     </header>
 
     <main class="content">
-      <h1 class="search_title">Search results for "Joy Division"</h1>
+      <h1 class="search_title hide">Search results for "Joy Division"</h1>
       <div class="search_filter">
         <span class="filter filter_selected">Top results</span>
         <span class="filter">Artists</span>
@@ -102,356 +103,22 @@
           />
         </button>
       </div>
-      <h2 class="search_title">Artists</h2>
+      <h2 class="search_title hide">Artists</h2>
       <div class="artists">
-        <div class="artist_card">
-          <img
-            src="icons/joy division.jpg"
-            alt="artist"
-            width="250"
-            height="250"
-          />
-          <div class="artist_text">
-            <span class="name">Disorder</span>
-            <span class="listeners">100 listeners</span>
-          </div>
-        </div>
-        <div class="artist_card">
-          <img
-            src="icons/joy division.jpg"
-            alt="artist"
-            width="250"
-            height="250"
-          />
-          <div class="artist_text">
-            <span class="name">Disorder</span>
-            <span class="listeners">100 listeners</span>
-          </div>
-        </div>
-        <div class="artist_card">
-          <img
-            src="icons/joy division.jpg"
-            alt="artist"
-            width="250"
-            height="250"
-          />
-          <div class="artist_text">
-            <span class="name">Disorder</span>
-            <span class="listeners">100 listeners</span>
-          </div>
-        </div>
-        <div class="artist_card">
-          <img
-            src="icons/joy division.jpg"
-            alt="artist"
-            width="250"
-            height="250"
-          />
-          <div class="artist_text">
-            <span class="name">Disorder</span>
-            <span class="listeners">100 listeners</span>
-          </div>
-        </div>
-        <div class="artist_card">
-          <img
-            src="icons/joy division.jpg"
-            alt="artist"
-            width="250"
-            height="250"
-          />
-          <div class="artist_text">
-            <span class="name">Disorder</span>
-            <span class="listeners">100 listeners</span>
-          </div>
-        </div>
-        <div class="artist_card">
-          <img
-            src="icons/joy division.jpg"
-            alt="artist"
-            width="250"
-            height="250"
-          />
-          <div class="artist_text">
-            <span class="name">Disorder</span>
-            <span class="listeners">100 listeners</span>
-          </div>
-        </div>
-        <div class="artist_card">
-          <img
-            src="icons/joy division.jpg"
-            alt="artist"
-            width="250"
-            height="250"
-          />
-          <div class="artist_text">
-            <span class="name">Disorder</span>
-            <span class="listeners">100 listeners</span>
-          </div>
-        </div>
-        <div class="artist_card">
-          <img
-            src="icons/joy division.jpg"
-            alt="artist"
-            width="250"
-            height="250"
-          />
-          <div class="artist_text">
-            <span class="name">Disorder</span>
-            <span class="listeners">100 listeners</span>
-          </div>
-        </div>
         <div class="link_container">
-          <a href="/" class="link more_link">More artists ></a>
+          <a href="/" class="link more_link hide">More artists ></a>
         </div>
       </div>
-      <h2 class="search_title">Albums</h2>
-      <div class="artists">
-        <div class="artist_card">
-          <img
-            src="icons/joy division.jpg"
-            alt="artist"
-            width="250"
-            height="250"
-          />
-          <div class="artist_text">
-            <span class="name">Unknown Pleasures</span>
-            <span class="listeners">Joy Division</span>
-          </div>
-        </div>
-        <div class="artist_card">
-          <img
-            src="icons/joy division.jpg"
-            alt="artist"
-            width="250"
-            height="250"
-          />
-          <div class="artist_text">
-            <span class="name">Unknown Pleasures</span>
-            <span class="listeners">Joy Division</span>
-          </div>
-        </div>
-        <div class="artist_card">
-          <img
-            src="icons/joy division.jpg"
-            alt="artist"
-            width="250"
-            height="250"
-          />
-          <div class="artist_text">
-            <span class="name">Unknown Pleasures</span>
-            <span class="listeners">Joy Division</span>
-          </div>
-        </div>
-        <div class="artist_card">
-          <img
-            src="icons/joy division.jpg"
-            alt="artist"
-            width="250"
-            height="250"
-          />
-          <div class="artist_text">
-            <span class="name">Unknown Pleasures</span>
-            <span class="listeners">Joy Division</span>
-          </div>
-        </div>
-        <div class="artist_card">
-          <img
-            src="icons/joy division.jpg"
-            alt="artist"
-            width="250"
-            height="250"
-          />
-          <div class="artist_text">
-            <span class="name">Unknown Pleasures</span>
-            <span class="listeners">Joy Division</span>
-          </div>
-        </div>
-        <div class="artist_card">
-          <img
-            src="icons/joy division.jpg"
-            alt="artist"
-            width="250"
-            height="250"
-          />
-          <div class="artist_text">
-            <span class="name">Unknown Pleasures</span>
-            <span class="listeners">Joy Division</span>
-          </div>
-        </div>
-        <div class="artist_card">
-          <img
-            src="icons/joy division.jpg"
-            alt="artist"
-            width="250"
-            height="250"
-          />
-          <div class="artist_text">
-            <span class="name">Unknown Pleasures</span>
-            <span class="listeners">Joy Division</span>
-          </div>
-        </div>
-        <div class="artist_card">
-          <img
-            src="icons/joy division.jpg"
-            alt="artist"
-            width="250"
-            height="250"
-          />
-          <div class="artist_text">
-            <span class="name">Unknown Pleasures</span>
-            <span class="listeners">Joy Division</span>
-          </div>
-        </div>
+      <h2 class="search_title hide">Albums</h2>
+      <div class="artists albums">
         <div class="link_container">
-          <a href="/" class="link more_link">More albums ></a>
+          <a href="/" class="link more_link hide">More albums ></a>
         </div>
       </div>
-      <h2 class="search_title">Tracks</h2>
+      <h2 class="search_title hide">Tracks</h2>
       <div class="tracks">
-        <div class="track">
-          <button class="clear_btn"><img src="icons/play.svg" alt="play" width="50" height="50"/></button>
-          <img
-            src="icons/joy division.jpg"
-            width="50"
-            height="50"
-            alt="track"
-          />
-          <a href="" class="h_link">
-            <img src="icons/heart.svg"  alt="" width="25" height="25">
-          </a>
-          <span class="song">Disorder</span>
-          <span class="singer">Joy Division</span>
-          <span class="duration">4:50</span>
-        </div>
-        <div class="track">
-          <button class="clear_btn"><img src="icons/play.svg" alt="play" width="50" height="50"/></button>
-          <img
-            src="icons/joy division.jpg"
-            width="50"
-            height="50"
-            alt="track"
-          />
-          <a href="" class="h_link">
-            <img src="icons/heart.svg"  alt="" width="25" height="25">
-          </a>
-          <span class="song">Disorder</span>
-          <span class="singer">Joy Division</span>
-          <span class="duration">4:50</span>
-        </div>  <div class="track">
-          <button class="clear_btn"><img src="icons/play.svg" alt="play" width="50" height="50"/></button>
-          <img
-            src="icons/joy division.jpg"
-            width="50"
-            height="50"
-            alt="track"
-          />
-          <a href="" class="h_link">
-            <img src="icons/heart.svg"  alt="" width="25" height="25">
-          </a>
-          <span class="song">Disorder</span>
-          <span class="singer">Joy Division</span>
-          <span class="duration">4:50</span>
-        </div>  <div class="track">
-          <button class="clear_btn"><img src="icons/play.svg" alt="play" width="50" height="50"/></button>
-          <img
-            src="icons/joy division.jpg"
-            width="50"
-            height="50"
-            alt="track"
-          />
-          <a href="" class="h_link">
-            <img src="icons/heart.svg"  alt="" width="25" height="25">
-          </a>
-          <span class="song">Disorder</span>
-          <span class="singer">Joy Division</span>
-          <span class="duration">4:50</span>
-        </div>  <div class="track">
-          <button class="clear_btn"><img src="icons/play.svg" alt="play" width="50" height="50"/></button>
-          <img
-            src="icons/joy division.jpg"
-            width="50"
-            height="50"
-            alt="track"
-          />
-          <a href="" class="h_link">
-            <img src="icons/heart.svg"  alt="" width="25" height="25">
-          </a>
-          <span class="song">Disorder</span>
-          <span class="singer">Joy Division</span>
-          <span class="duration">4:50</span>
-        </div>  <div class="track">
-          <button class="clear_btn"><img src="icons/play.svg" alt="play" width="50" height="50"/></button>
-          <img
-            src="icons/joy division.jpg"
-            width="50"
-            height="50"
-            alt="track"
-          />
-          <a href="" class="h_link">
-            <img src="icons/heart.svg"  alt="" width="25" height="25">
-          </a>
-          <span class="song">Disorder</span>
-          <span class="singer">Joy Division</span>
-          <span class="duration">4:50</span>
-        </div>  <div class="track">
-          <button class="clear_btn"><img src="icons/play.svg" alt="play" width="50" height="50"/></button>
-          <img
-            src="icons/joy division.jpg"
-            width="50"
-            height="50"
-            alt="track"
-          />
-          <a href="" class="h_link">
-            <img src="icons/heart.svg"  alt="" width="25" height="25">
-          </a>
-          <span class="song">Disorder</span>
-          <span class="singer">Joy Division</span>
-          <span class="duration">4:50</span>
-        </div>  <div class="track">
-          <button class="clear_btn"><img src="icons/play.svg" alt="play" width="50" height="50"/></button>
-          <img
-            src="icons/joy division.jpg"
-            width="50"
-            height="50"
-            alt="track"
-          />
-          <a href="" class="h_link">
-            <img src="icons/heart.svg"  alt="" width="25" height="25">
-          </a>
-          <span class="song">Disorder</span>
-          <span class="singer">Joy Division</span>
-          <span class="duration">4:50</span>
-        </div>  <div class="track">
-          <button class="clear_btn"><img src="icons/play.svg" alt="play" width="50" height="50"/></button>
-          <img
-            src="icons/joy division.jpg"
-            width="50"
-            height="50"
-            alt="track"
-          />
-          <a href="" class="h_link">
-            <img src="icons/heart.svg"  alt="" width="25" height="25">
-          </a>
-          <span class="song">Disorder</span>
-          <span class="singer">Joy Division</span>
-          <span class="duration">4:50</span>
-        </div>  <div class="track">
-          <button class="clear_btn"><img src="icons/play.svg" alt="play" width="50" height="50"/></button>
-          <img
-            src="icons/joy division.jpg"
-            width="50"
-            height="50"
-            alt="track"
-          />
-          <a href="" class="h_link">
-            <img src="icons/heart.svg"  alt="" width="25" height="25">
-          </a>
-          <span class="song">Disorder</span>
-          <span class="singer">Joy Division</span>
-          <span class="duration">4:50</span>
-        </div>
         <div class="link_container">
-          <a href="/" class="link more_link">More tracks ></a>
+          <a href="/" class="link more_link hide">More tracks ></a>
         </div>
       </div>
     </main>
